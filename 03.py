@@ -4,7 +4,7 @@ def pegar_vetor(f):
     with open(f, 'r') as file:
         data = json.load(file)
     
-    faturamento = [dia["valor"] for dia in data["faturamento_diario"] if dia["valor"] > 0]
+    faturamento = [dia["valor"] for dia in data if dia["valor"] > 0]
 
     return faturamento
 
@@ -17,7 +17,7 @@ def calculos_faturamento(v):
 
     return menor, maior, dias_acima_media
 
-vetor = pegar_vetor('faturamento.json')
+vetor = pegar_vetor('dados.json')
 
 menor, maior, dias_acima = calculos_faturamento(vetor)
 
